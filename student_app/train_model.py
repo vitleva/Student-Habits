@@ -5,6 +5,7 @@ from sklearn.metrics import r2_score
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 import joblib
 import json
+import os
 
 # Загрузка данных 
 df = pd.read_csv("students.csv")  
@@ -49,7 +50,10 @@ print(f"MSE = {mse:.2f}")
 
 
 # Сохраняем модель 
-joblib.dump(model, "model.joblib")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(BASE_DIR, "model.joblib")
+
+joblib.dump(model, model_path)
 
 # Сохраняем метрики в JSON
 metrics = {
@@ -64,7 +68,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 
-# --- FEATURE IMPORTANCE ---
+
 importances = model.feature_importances_
 features = X.columns
 indices = np.argsort(importances)[::-1]
@@ -76,7 +80,7 @@ plt.tight_layout()
 plt.show()
 
 
-# --- PREDICTED vs ACTUAL ---
+
 plt.figure(figsize=(6, 6))
 plt.scatter(y_test, y_pred, alpha=0.7)
 plt.xlabel("Истинное значение")
