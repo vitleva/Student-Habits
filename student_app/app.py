@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from models import *
 from utils import preprocess_input
 from ml_model import predict_score, evaluate_model
+import os
 
 app = Flask(__name__)
 
