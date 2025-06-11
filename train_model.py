@@ -49,7 +49,7 @@ print(f"MSE = {mse:.2f}")
 
 
 # Сохраняем модель 
-joblib.dump(model, "model.joblib")
+joblib.dump(model, "model.pkl")
 
 # Сохраняем метрики в JSON
 metrics = {
