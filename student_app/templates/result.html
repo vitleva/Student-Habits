@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Введённые данные</h2>
+    <ul class="input-data">
+        <li><strong>ID:</strong> {{ form_data.student_id }}</li>
+        <li><strong>Возраст:</strong> {{ form_data.age }}</li>
+        <li><strong>Пол:</strong> {{ form_data.gender }}</li>
+        <li><strong>Образование родителей:</strong> {{ form_data.parental_education_level }}</li>
+        <li><strong>Часы учёбы в день:</strong> {{ form_data.study_hours_per_day }}</li>
+        <li><strong>Часы сна:</strong> {{ form_data.sleep_hours }}</li>
+        <li><strong>Физ. активность в неделю:</strong> {{ form_data.exercise_frequency }}</li>
+        <li><strong>Соцсети в день:</strong> {{ form_data.social_media_hours }}</li>
+        <li><strong>Netflix в день:</strong> {{ form_data.netflix_hours }}</li>
+        <li><strong>Подработка:</strong> {{ form_data.part_time_job }}</li>
+        <li><strong>Питание:</strong> {{ form_data.diet_quality }}</li>
+        <li><strong>Интернет:</strong> {{ form_data.internet_quality }}</li>
+        <li><strong>Психоэмоциональное состояние:</strong> {{ form_data.mental_health_rating }}</li>
+        <li><strong>Доп. активности:</strong> {{ form_data.extracurricular_participation }}</li>
+        <li><strong>Посещаемость:</strong> {{ form_data.attendance_percentage }}%</li>
+    </ul>
+
+    <h2>Результат прогноза</h2>
+    <div class="result-card">
+        <p>Прогнозируемая успеваемость: <span class="score">{{ prediction }}</span></p>
+        <a href="{{ url_for('index') }}" class="btn">Новый прогноз</a>
+    </div>
+    <h3>Оценка эффективности модели</h3>
+    <ul class="metrics">
+        <li><strong>R²:</strong> {{ r2 }} — доля объяснённой дисперсии. Ближе к 1 — лучше.</li>
+        <li><strong>MAE:</strong> {{ mae }} — средняя абсолютная ошибка. Ниже — лучше.</li>
+        <li><strong>MSE:</strong> {{ mse }} — среднеквадратичная ошибка. Чувствительна к выбросам.</li>
+    </ul>
+
+{% endblock %}

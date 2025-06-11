@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Введите данные студента</h2>
+    <form method="POST" action="{{ url_for('index') }}">
+        <div class="form-group">
+            <label for="student_id">ID студента (или ФИО полностью):</label>
+            <input type="text" id="student_id" name="student_id" required>
+        </div>
+
+        <div class="form-group">
+            <label for="age">Возраст:</label>
+            <input type="number" id="age" name="age" required>
+        </div>
+
+        <div class="form-group">
+            <label for="gender">Пол:</label>
+            <select id="gender" name="gender" required>
+                <option value="Male">Мужской</option>
+                <option value="Female">Женский</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="parental_education_level">Образование родителей:</label>
+            <select id="parental_education_level" name="parental_education_level" required>
+                <option value="High School">Среднее</option>
+                <option value="Bachelor">Бакалавр</option>
+                <option value="Master">Магистр</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="study_hours_per_day">Количество часов учебы в день:</label>
+            <input type="number" step="0.1" id="study_hours_per_day" name="study_hours_per_day" required>
+        </div>
+
+        <div class="form-group">
+            <label for="sleep_hours">Количество часов сна:</label>
+            <input type="number" step="0.1" id="sleep_hours" name="sleep_hours" required>
+        </div>
+
+        <div class="form-group">
+            <label for="exercise_frequency">Количество тренировок в неделю:</label>
+            <input type="number" id="exercise_frequency" name="exercise_frequency" required>
+        </div>
+
+        <div class="form-group">
+            <label for="social_media_hours">Количество часов в соцсетях в день:</label>
+            <input type="number" step="0.1" id="social_media_hours" name="social_media_hours" required>
+        </div>
+
+        <div class="form-group">
+            <label for="netflix_hours">Количество часов просмотра фильмов и сериалов в день:</label>
+            <input type="number" step="0.1" id="netflix_hours" name="netflix_hours" required>
+        </div>
+
+        <div class="form-group">
+            <label for="part_time_job">Есть подработка?</label>
+            <select id="part_time_job" name="part_time_job" required>
+                <option value="Yes">Да</option>
+                <option value="No">Нет</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="diet_quality">Качество питания:</label>
+            <select id="diet_quality" name="diet_quality" required>
+                <option value="Poor">Плохое</option>
+                <option value="Fair">Удовлетворительное</option>
+                <option value="Good">Хорошее</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="internet_quality">Качество интернета:</label>
+            <select id="internet_quality" name="internet_quality" required>
+                <option value="Poor">Плохое</option>
+                <option value="Average">Среднее</option>
+                <option value="Good">Хорошее</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="mental_health_rating">Оценка психоэмоционального состояния (1-10):</label>
+            <input type="number" min="1" max="10" id="mental_health_rating" name="mental_health_rating" required>
+        </div>
+
+        <div class="form-group">
+            <label for="extracurricular_participation">Дополнительные активности:</label>
+            <select id="extracurricular_participation" name="extracurricular_participation" required>
+                <option value="Yes">Да</option>
+                <option value="No">Нет</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="attendance_percentage">Посещаемость (%):</label>
+            <input type="number" step="0.1" id="attendance_percentage" name="attendance_percentage" required>
+        </div>
+
+        <button type="submit" class="btn">Прогнозировать успеваемость</button>
+    </form>
+
+{% endblock %}
